@@ -14,12 +14,14 @@ int main()
         int x;
         cin >> x;
         int l = 0, r = n - 1, ans = -1;
+        bool found = false;
         while (l <= r)
         {
             int mid = l + (r - l) / 2;
             if (arr[mid] == x)
             {
-                ans = mid + 1;
+                ans = mid;
+                found = true;
                 break;
             }
             else if (arr[mid] < x)
@@ -31,6 +33,6 @@ int main()
                 r = mid - 1;
             }
         }
-        cout << (ans == -1 ? -1 : ans) << endl;
+        cout << (ans == -1 ? "Not Found" : "Found") << endl;
     }
 }
