@@ -241,6 +241,23 @@ ll bigMod(string s, ll mod)
     return res;
 }
 
+// Modular Exponentiation
+// @brief Calculates (x^n) mod m using fast exponentiation.
+// @param x The base number.
+// @param n The exponent.
+// @param m The modulo value.
+// @return The result of (x^n) mod m.
+int modpower(int x, int n, int m)
+{
+    if (n == 0) // base case
+        return 1 % m;
+    ll u = modpower(x, n / 2, m);
+    u = (u * u) % m;
+    if (n % 2 == 1) // when 'n' is odd
+        u = (u * x) % m;
+    return u;
+}
+
 // Fast Power Calculation
 // @brief Calculates base raised to the power exp using fast exponentiation.
 // @param base The base number.
@@ -290,7 +307,5 @@ vector<ll> sieve(ll n)
 
 int main()
 {
-
     // Enter your code here
-
 }
