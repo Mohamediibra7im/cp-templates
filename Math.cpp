@@ -84,6 +84,43 @@ vector<int> primeFactorization(ll n)
     return factors;
 }
 
+// Count Prime Divisor
+// @brief Counts the number of prime divisors of a number.
+// @param n The number to analyze.
+int countPrimeDivisor(ll n)
+{
+    int cnt = 0;
+    for (ll i = 1; i <= n; ++i) {
+        int count = 0;
+        vector<int> factors = primeFactorization(i);
+        set<int> unique_factors(factors.begin(), factors.end());
+        if (unique_factors.size() == 2) {
+            cnt++;
+        }
+    }
+    return cnt;
+}
+
+// Find k factors of a number
+// @brief Finds k factors of a number n.
+// @param n The number to factorize.
+// @param k The number of factors to find.
+// @return A vector containing the first k factors of n, or {-1} if not enough factors exist.
+vector<int> findKFactors(ll n, int k)
+{
+    vector<int> factors = primeFactorization(n);
+    if (factors.size() < k)
+        return {-1};
+    vector<int> result;
+    for (int i = 0; i < k - 1; ++i)
+        result.push_back(factors[i]);
+    int last = 1;
+    for (int i = k - 1; i < factors.size(); ++i)
+        last *= factors[i];
+    result.push_back(last);
+    return result;
+}
+
 // Get all divisors of a number
 // @brief Returns a vector containing all divisors of a number.
 // @param n The number to find divisors for.
@@ -144,7 +181,6 @@ ll sumOfDivisors(ll n)
     ll sq = sqrt(n);
     return sumDivisors + (sq * sq == n ? sq : 0);
 }
-
 
 // Summation of first n natural numbers
 // @brief Calculates the summation of the first n natural numbers.
