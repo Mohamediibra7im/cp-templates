@@ -15,14 +15,14 @@ typedef vector<pii> vii;
 #define rall(x) x.rbegin(), x.rend()
 #define endl '\n'
 #define time cerr << "Time Taken: " << (float)clock() / CLOCKS_PER_SEC << " Secs" << endl;
-//!=========================>>Fast-IO-Functions<<=================
+//=========================>>Fast-IO-Functions<<=================
 void fastIO()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
 }
-//!=========================>>File-IO-Functions<<=================
+//=========================>>File-IO-Functions<<=================
 void fileIO()
 {
 #ifndef ONLINE_JUDGE
@@ -30,7 +30,7 @@ void fileIO()
     freopen("output.txt", "w", stdout);
 #endif
 }
-//!=========================>>Main-Code<<=========================
+//=========================>>Main-Code<<=========================
 int main()
 {
     fileIO();
