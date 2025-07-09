@@ -1,5 +1,9 @@
 # My Competitive Programming Templates
 
+<p align="center">
+    <img src="https://d3moma7wl9.ufs.sh/f/xRZhVxWEJbFM5c1pnQVDPceGaQzspRf8tvH62OwX1ldE7oCU" alt="My CP Templates" width="600"/>
+</p>
+
 A new and growing collection of my personal C++ templates for competitive programming. This repository is currently under construction, and I will be adding and organizing templates over time.
 
 [![Made with Love](https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F-blueviolet )](https://github.com/Mohamediibra7im )
