@@ -182,6 +182,22 @@ ll sumOfDivisors(ll n)
     return sumDivisors + (sq * sq == n ? sq : 0);
 }
 
+// get Composite Numbers
+// @brief Returns a vector containing all composite numbers up to n.
+// @param n The upper limit for composite numbers.
+vector<ll> getCompositeNumbers(ll n)
+{
+    vector<ll> compositeNumbers;
+    for (ll i = 4; i <= n; i++)
+    {
+        if (!isPrime(i))
+        {
+            compositeNumbers.push_back(i);
+        }
+    }
+    return compositeNumbers;
+}
+
 // Summation of first n natural numbers
 // @brief Calculates the summation of the first n natural numbers.
 // @param x The number of terms to sum.
