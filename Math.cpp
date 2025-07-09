@@ -336,7 +336,7 @@ ll fastPower(ll base, ll exp)
 vector<ll> sieve(ll n)
 {
     vector<bool> prime(n + 1, true);
-    for (int i = 2; i <= sqrt(n); i++)
+    for (int i = 2; i * i <= n; i++)
     {
         if (prime[i] == true)
         {
