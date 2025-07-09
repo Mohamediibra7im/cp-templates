@@ -1,7 +1,7 @@
 # My Competitive Programming Templates
 
 <p align="center">
-    <img src="https://d3moma7wl9.ufs.sh/f/xRZhVxWEJbFM5c1pnQVDPceGaQzspRf8tvH62OwX1ldE7oCU" alt="My CP Templates" width="600"/>
+    <img src="https://d3moma7wl9.ufs.sh/f/xRZhVxWEJbFM5c1pnQVDPceGaQzspRf8tvH62OwX1ldE7oCU" alt="My CP Templates" width="600" style="border-radius: 16px;"/>
 </p>
 
 A new and growing collection of my personal C++ templates for competitive programming. This repository is currently under construction, and I will be adding and organizing templates over time.
