@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
-typedef long long ll;
 using namespace std;
+typedef long long ll;
+const ll mod = 1'000'000'007;
 
 // @brief Checks if a number is prime.
 // @param n The number to check.
@@ -274,7 +275,6 @@ ll bigMod(string s, ll mod)
     return res;
 }
 
-const ll mod = 1'000'000'007;
 // Power Modulo Calculation
 // @brief Calculates (x^y) mod m using iterative method.
 // @param x The base number.
