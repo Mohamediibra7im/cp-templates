@@ -316,6 +316,16 @@ ll mul(ll a, ll b)
     return ((a % mod) * (b % mod)) % mod;
 }
 
+// Modular Division
+// @brief Divides two numbers under modulo using Fermat's Little Theorem.
+// @param a The numerator.
+// @param b The denominator.
+// @return The result of (a / b) mod m.
+ll divide(ll a, ll b)
+{
+    return mul(a, powmod(b, mod - 2));
+}
+
 // Modular Subtraction
 // @brief Subtracts two numbers under modulo.
 // @param a The first number.
