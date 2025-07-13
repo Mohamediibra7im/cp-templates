@@ -274,21 +274,56 @@ ll bigMod(string s, ll mod)
     return res;
 }
 
-// Modular Exponentiation
-// @brief Calculates (x^n) mod m using fast exponentiation.
+const ll mod = 1'000'000'007;
+// Power Modulo Calculation
+// @brief Calculates (x^y) mod m using iterative method.
 // @param x The base number.
-// @param n The exponent.
-// @param m The modulo value.
-// @return The result of (x^n) mod m.
-int modpower(int x, int n, int m)
+// @param y The exponent.
+// @return The result of (x^y) mod m.
+ll powmod(ll x, ll y)
 {
-    if (n == 0) // base case
-        return 1 % m;
-    ll u = modpower(x, n / 2, m);
-    u = (u * u) % m;
-    if (n % 2 == 1) // when 'n' is odd
-        u = (u * x) % m;
-    return u;
+    ll res = 1;
+    x = x % mod;
+    if (x == 0)
+        return 0;
+    while (y > 0)
+    {
+        if (y & 1)
+            res = (res * x) % mod;
+        y = y >> 1;
+        x = (x * x) % mod;
+    }
+    return res;
+}
+
+// Modular Addition
+// @brief Adds two numbers under modulo.
+// @param a The first number.
+// @param b The second number.
+// @return The result of (a + b) mod m.
+ll add(ll a, ll b)
+{
+    return ((a % mod) + (b % mod)) % mod;
+}
+
+// Modular Multiplication
+// @brief Multiplies two numbers under modulo.
+// @param a The first number.
+// @param b The second number.
+// @return The result of (a * b) mod m.
+ll mul(ll a, ll b)
+{
+    return ((a % mod) * (b % mod)) % mod;
+}
+
+// Modular Subtraction
+// @brief Subtracts two numbers under modulo.
+// @param a The first number.
+// @param b The second number.
+// @return The result of (a - b) mod m.
+ll sub(ll a, ll b)
+{
+    return ((((a % mod) - (b % mod)) % mod) + mod) % mod;
 }
 
 // Fast Power Calculation
