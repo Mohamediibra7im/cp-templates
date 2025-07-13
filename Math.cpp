@@ -128,31 +128,12 @@ vector<int> findKFactors(ll n, int k)
 vector<ll> getDivisors(ll n)
 {
     vector<ll> divisors;
-    for (int i = 1; i < sqrt(n); i++)
+    for (int i = 1; i * i <= n; i++)
         if (n % i == 0)
             divisors.push_back(i), divisors.push_back(n / i);
     if (sqrt(n) == int(sqrt(n)))
         divisors.push_back(sqrt(n));
     return divisors;
-}
-
-// Prints all divisors of a number in increasing order
-// @brief Prints all divisors of a number.
-// @param n The number to find divisors for.
-void printDivisors(ll n)
-{
-    set<ll> divisors;
-    for (ll i = 1; i <= sqrt(n); i++)
-    {
-        if (n % i == 0)
-        {
-            divisors.insert(i);
-            divisors.insert(n / i);
-        }
-    }
-    for (auto &d : divisors)
-        cout << d << " ";
-    cout << endl;
 }
 
 // Number of divisors of a number
@@ -162,7 +143,7 @@ void printDivisors(ll n)
 int numberOfDivisors(ll n)
 {
     int divisors = 0;
-    for (int i = 1; i <= sqrt(n); i++)
+    for (int i = 1; i * i <= n; i++)
         if (n % i == 0)
             divisors += 2;
     return divisors - (sqrt(n) == (int)sqrt(n));
@@ -175,7 +156,7 @@ int numberOfDivisors(ll n)
 ll sumOfDivisors(ll n)
 {
     ll sumDivisors = 0;
-    for (int i = 1; i < sqrt(n); i++)
+    for (int i = 1; i * i < n; i++)
         if (n % i == 0)
             sumDivisors += ((n / i) + i);
     ll sq = sqrt(n);
@@ -336,18 +317,18 @@ ll fastPower(ll base, ll exp)
 vector<ll> sieve(ll n)
 {
     vector<bool> prime(n + 1, true);
-    for (int i = 2; i * i <= n; i++)
+    for (ll i = 2; i * i <= n; i++)
     {
         if (prime[i] == true)
         {
-            for (int j = i * i; j <= n; j += i)
+            for (ll j = i * i; j <= n; j += i)
                 prime[j] = false;
         }
     }
 
     // @note This part collects all prime numbers from the sieve.
     vector<ll> res;
-    for (int p = 2; p <= n; p++)
+    for (ll p = 2; p <= n; p++)
     {
         if (prime[p])
         {
