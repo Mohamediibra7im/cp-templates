@@ -10,7 +10,7 @@ bool isPrime(ll n)
 {
     if (n < 2 || (n % 2 == 0 && n != 2))
         return false;
-    for (int i = 3; i <= sqrt(n); i += 2)
+    for (int i = 3; i * i <= n; i += 2)
         if (n % i == 0)
             return false;
     return true;
@@ -71,7 +71,7 @@ vector<int> primeFactorization(ll n)
     {
         factors.push_back(2), n /= 2;
     }
-    for (int i = 3; i <= sqrt(n); i += 2)
+    for (int i = 3; i * i <= n; i += 2)
     {
         while (n % i == 0)
         {
