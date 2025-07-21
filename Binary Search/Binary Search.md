@@ -7,7 +7,7 @@
 The most typical problem that leads to the binary search is as follows. You're given a sorted array $A_0 \leq A_1 \leq \dots \leq A_{n-1}$, check if $k$ is present within the sequence. The simplest solution would be to check every element one by one and compare it with $k$ (a so-called linear search). This approach works in $O(n)$, but doesn't utilize the fact that the array is sorted.
 
 <center>
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Binary_Search_Depiction.svg" width="800px">
+<img src="https://d3moma7wl9.ufs.sh/f/xRZhVxWEJbFMLQOFTAGXPAvHO4BkQZNMeU0GmcyIVuj3Snrx" width="800px">
 <br>
 <i>Binary search of the value [7] in an array</i>.
 <br>
