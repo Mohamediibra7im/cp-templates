@@ -91,11 +91,13 @@ vector<int> primeFactorization(ll n)
 int countPrimeDivisor(ll n)
 {
     int cnt = 0;
-    for (ll i = 1; i <= n; ++i) {
+    for (ll i = 1; i <= n; ++i)
+    {
         int count = 0;
         vector<int> factors = primeFactorization(i);
         set<int> unique_factors(factors.begin(), factors.end());
-        if (unique_factors.size() == 2) {
+        if (unique_factors.size() == 2)
+        {
             cnt++;
         }
     }
@@ -199,7 +201,7 @@ void printPermutation(vector<int> &nums)
         Factorial *= i;
     while (Factorial--)
     {
-        for(auto &i : nums)
+        for (auto &i : nums)
             cout << i << " ";
         cout << endl;
         next_permutation(nums.begin(), nums.end());
@@ -250,7 +252,7 @@ ll nCr(ll n, ll r)
 // @return The number of permutations (nPr).
 ll nPr(ll n, ll r)
 {
-    if(r > n)
+    if (r > n)
         return 0;
     ll npr = 1;
     while (r-- > 0)
@@ -276,22 +278,19 @@ ll bigMod(string s, ll mod)
 }
 
 // Power Modulo Calculation
-// @brief Calculates (x^y) mod m using iterative method.
+// @brief Calculates (x^y) mod m using fast exponentiation.
 // @param x The base number.
 // @param y The exponent.
 // @return The result of (x^y) mod m.
 ll powmod(ll x, ll y)
 {
     ll res = 1;
-    x = x % mod;
-    if (x == 0)
-        return 0;
-    while (y > 0)
-    {
+    x %= mod;
+    while (y > 0) {
         if (y & 1)
             res = (res * x) % mod;
-        y = y >> 1;
         x = (x * x) % mod;
+        y >>= 1;
     }
     return res;
 }
@@ -337,21 +336,22 @@ ll sub(ll a, ll b)
 }
 
 // Fast Power Calculation
-// @brief Calculates base raised to the power exp using fast exponentiation.
+// @brief Calculates (base^exp) % mod using exponentiation by squaring.
 // @param base The base number.
 // @param exp The exponent.
 // @return The result of base^exp.
-ll fastPower(ll base, ll exp)
+ll fastPower(ll base, ll expo, ll mod)
 {
-    ll power = 1;
-    while (exp)
+    ll res = 1;
+    base %= mod;
+    while (expo)
     {
-        if (exp & 1)
-            power *= base;
-        exp >>= 1;
-        base *= base;
+        if (expo & 1)
+            res = res * base % mod;
+        base = base * base % mod;
+        expo >>= 1;
     }
-    return power;
+    return res;
 }
 
 // Sieve of Eratosthenes
