@@ -342,9 +342,9 @@ ll sub(ll a, ll b)
 // @return The result of base^exp.
 ll fastPower(ll base, ll expo, ll mod)
 {
-    ll res = 1;
     base %= mod;
-    while (expo)
+    ll res = 1;
+    while (expo > 0)
     {
         if (expo & 1)
             res = res * base % mod;
