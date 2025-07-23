@@ -374,26 +374,26 @@ vector<ll> sieve(ll n)
     return res;
 }
 
-// Sieve of Eratosthenes for Euler's Totient Function
-// @brief Generates Euler's Totient function values for all integers up to N.
-// @note This function computes the number of integers up to n that are coprime with n.
-const int N = 5000006;
-ll phi[N];
-void sieveForEuler()
+// Euler's Totient Function
+// @brief Calculates the number of integers up to n that are coprime with n.
+// @param n The number to analyze.
+// @return The value of Euler's Totient Function for n.
+void PHI(int n)
 {
-    for (int i = 0; i < N; i++)
+    vector<int> phi(n + 1);
+    phi[0] = 0, phi[1] = 1;
+
+    for (int i = 2; i <= n; i++)
     {
-        phi[i] = i;
+        phi[i] = i - 1;
     }
-    for (int i = 2; i < N; i++)
+
+    for (int i = 2; i <= n; i++)
     {
-        if (phi[i] == i)
+        for (int j = 0; j <= n; j += i)
         {
-            for (int j = i; j < N; j += i)
-            {
-                phi[j] -= phi[j] / i;
-            }
-        }
+            phi[j] -= phi[i];
+        }   
     }
 }
 
