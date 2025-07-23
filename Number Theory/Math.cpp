@@ -277,22 +277,32 @@ ll bigMod(string s, ll mod)
     return res;
 }
 
-// Power Modulo Calculation
-// @brief Calculates (x^y) mod m using fast exponentiation.
-// @param x The base number.
-// @param y The exponent.
-// @return The result of (x^y) mod m.
-ll powmod(ll x, ll y)
+// Fast Power Calculation
+// @brief Calculates (base^exp) % mod using exponentiation by squaring.
+// @param base The base number.
+// @param exp The exponent.
+// @return The result of base^exp.
+ll fastPower(ll base, ll expo, ll mod)
 {
+    base %= mod;
     ll res = 1;
-    x %= mod;
-    while (y > 0) {
-        if (y & 1)
-            res = (res * x) % mod;
-        x = (x * x) % mod;
-        y >>= 1;
+    while (expo > 0)
+    {
+        if (expo & 1)
+            res = (res * base) % mod;
+        base = (base * base) % mod;
+        expo >>= 1;
     }
     return res;
+}
+
+// Modular Inverse Calculation
+// @brief Calculates the modular inverse of x under modulo using Fermat's Little Theorem.
+// @param x The number to find the inverse of.
+// @param mod The modulo value.
+ll invMod(ll x, ll mod)
+{
+    return fastPower(x, mod - 2, mod);
 }
 
 // Modular Addition
@@ -316,13 +326,13 @@ ll mul(ll a, ll b)
 }
 
 // Modular Division
-// @brief Divides two numbers under modulo using Fermat's Little Theorem.
+// @brief Divides two numbers under modulo using modular inverse.
 // @param a The numerator.
 // @param b The denominator.
 // @return The result of (a / b) mod m.
 ll divide(ll a, ll b)
 {
-    return mul(a, powmod(b, mod - 2));
+    return mul(a, invMod(b, mod));
 }
 
 // Modular Subtraction
@@ -333,25 +343,6 @@ ll divide(ll a, ll b)
 ll sub(ll a, ll b)
 {
     return ((((a % mod) - (b % mod)) % mod) + mod) % mod;
-}
-
-// Fast Power Calculation
-// @brief Calculates (base^exp) % mod using exponentiation by squaring.
-// @param base The base number.
-// @param exp The exponent.
-// @return The result of base^exp.
-ll fastPower(ll base, ll expo, ll mod)
-{
-    base %= mod;
-    ll res = 1;
-    while (expo > 0)
-    {
-        if (expo & 1)
-            res = res * base % mod;
-        base = base * base % mod;
-        expo >>= 1;
-    }
-    return res;
 }
 
 // Sieve of Eratosthenes
