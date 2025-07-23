@@ -14,7 +14,8 @@ To compute the size of a union of multiple sets, it is necessary to sum the size
 
 The above definition can be expressed mathematically as follows:
 
-$$\left| \bigcup_{i=1}^n A_i \right| = \sum_{i=1}^n |A_i| - \sum_{1\leq i<j\leq n} |A_i \cap A_j| + \sum_{1\leq i<j<k\leq n} |A_i \cap A_j \cap A_k| - \cdots + (-1)^{n-1} |A_1 \cap \cdots \cap A_n|$$
+$$\left| \bigcup_{i=1}^n A_i \right| = \sum_{i=1}^n |A_i| - \sum_{1 \le i < j \le n} |A_i \cap A_j| + \sum_{1 \le i < j < k \le n} |A_i \cap A_j \cap A_k| - \cdots + (-1)^{n-1} \left| \bigcap_{i=1}^n A_i \right|$$
+
 
 And in a more compact way:
 
@@ -36,7 +37,8 @@ It can also be generalized for an association of $n$ sets.
 
 If $A_i$ $(i = 1,2...n)$ are events and ${\cal P}(A_i)$ the probability of an event from $A_i$ to occur, then the probability of their union (i.e. the probability that at least one of the events occur) is equal to:
 
-$${\cal P} \left( \bigcup_{i=1}^n A_i \right) = \sum_{i=1}^n {\cal P}(A_i) - \sum_{1\leq i<j\leq n} {\cal P}(A_i \cap A_j) + \sum_{1\leq i<j<k\leq n} {\cal P}(A_i \cap A_j \cap A_k) - \cdots + (-1)^{n-1} {\cal P}(A_1 \cap \cdots \cap A_n)$$
+$$\mathcal{P} \left( \bigcup_{i=1}^n A_i \right) = \sum_{i=1}^n \mathcal{P}(A_i) - \sum_{1 \le i < j \le n} \mathcal{P}(A_i \cap A_j) + \sum_{1 \le i < j < k \le n} \mathcal{P}(A_i \cap A_j \cap A_k) - \cdots + (-1)^{n-1} \mathcal{P}\left( \bigcap_{i=1}^n A_i \right)$$
+
 
 And in a more compact way:
 
