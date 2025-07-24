@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-const ll mod = 1'000'000'007;
+const ll mod = 1e9 + 7, maxA = 2e6 + 5;
 
 // @brief Checks if a number is prime.
 // @param n The number to check.
@@ -395,6 +395,21 @@ void PHI(int n)
             phi[j] -= phi[i];
         }   
     }
+}
+
+// Factorial and Inverse Factorial Precomputation
+// @brief Precomputes factorials and their modular inverses up to maxA.
+// @param mod The modulo value.
+// @note This function is used to efficiently calculate combinations and permutations.
+ll fact[maxA + 1], invfact[maxA + 1];
+void factorial(int mod)
+{
+    fact[0] = 1;
+    for (int i = 1; i < maxA; i++)
+        fact[i] = i * fact[i - 1] % mod;
+    invfact[maxA - 1] = fastPower(fact[maxA - 1], mod - 2, mod);
+    for (int i = maxA - 2; i >= 0; i--)
+        invfact[i] = (i + 1) * invfact[i + 1] % mod;
 }
 
 int main()
