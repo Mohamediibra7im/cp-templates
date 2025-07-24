@@ -231,21 +231,15 @@ ll nCr(ll n, ll r)
     return fact[n] * invfact[n - r] % mod * invfact[r] % mod;
 }
 
-// Permutation of n choose r
+// nPr Function
 // @brief Calculates the number of permutations of n items taken r at a time.
 // @param n The total number of items.
-// @param r The number of items to choose.
+// @param r The number of items to arrange.
 // @return The number of permutations (nPr).
+// @note Uses precomputed factorials and their inverses for efficiency.
 ll nPr(ll n, ll r)
 {
-    if (r > n)
-        return 0;
-    ll npr = 1;
-    while (r-- > 0)
-    {
-        npr *= n--;
-    }
-    return npr;
+    return fact[n] * invfact[n - r] % mod;
 }
 
 // Big Modulo Calculation
