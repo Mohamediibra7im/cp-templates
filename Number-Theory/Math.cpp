@@ -220,29 +220,15 @@ void PrintStringPermutation(string s)
     } while (next_permutation(s.begin(), s.end()));
 }
 
-// Combination of n choose r
+// nCr Function
 // @brief Calculates the number of combinations of n items taken r at a time.
 // @param n The total number of items.
 // @param r The number of items to choose.
 // @return The number of combinations (nCr).
+// @note Uses precomputed factorials and their inverses for efficiency.
 ll nCr(ll n, ll r)
 {
-    if (r > n)
-        return 0;
-    ll p = 1, k = 1;
-    if (n - r < r)
-        r = n - r;
-
-    // condition for minimum choose
-    if (n < 1)
-        return 0;
-    while (r)
-    {
-        p *= n, k *= r;
-        ll m = __gcd(p, k);
-        p /= m, k /= m, n--, r--;
-    }
-    return p;
+    return fact[n] * invfact[n - r] % mod * invfact[r] % mod;
 }
 
 // Permutation of n choose r
