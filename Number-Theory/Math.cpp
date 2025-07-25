@@ -241,6 +241,8 @@ ll nCr(ll n, ll r)
 // @note Uses precomputed factorials and their inverses for efficiency.
 ll nPr(ll n, ll r)
 {
+    if (n < r || r < 0)
+        return 0LL;
     return fact[n] * invfact[n - r] % mod;
 }
 
