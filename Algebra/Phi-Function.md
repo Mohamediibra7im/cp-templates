@@ -89,7 +89,7 @@ void phi_1_to_n(int n) {
 ```
 
 
-## Divisor sum property { #divsum}
+## Divisor sum property
 
 This interesting property was established by Gauss:
 
@@ -100,7 +100,7 @@ Here the sum is over all positive divisors $d$ of $n$.
 For instance the divisors of 10 are 1, 2, 5 and 10.
 Hence $\phi{(1)} + \phi{(2)} + \phi{(5)} + \phi{(10)} = 1 + 1 + 4 + 4 = 10$.
 
-### Finding the totient from 1 to $n$ using the divisor sum property { data-toc-label="Finding the totient from 1 to n using the divisor sum property" }
+### Finding the totient from 1 to $n$ using the divisor sum property
 
 The divisor sum property also allows us to compute the totient of all numbers between 1 and $n$.
 This implementation is a little simpler than the previous implementation based on the Sieve of Eratosthenes, however also has a slightly worse complexity: $O(n \log n)$
@@ -119,7 +119,7 @@ void phi_1_to_n(int n) {
 }
 ```
 
-## Application in Euler's theorem { #application }
+## Application in Euler's theorem
 
 The most famous and important property of Euler's totient function is expressed in **Euler's theorem**: 
 
