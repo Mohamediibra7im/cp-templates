@@ -13,6 +13,14 @@ void fastIO()
     cout.tie(nullptr);
 }
 
+// void fileIO()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("in.txt", "r", stdin);
+//     freopen("out.txt", "w", stdout);
+// #endif
+// }
+
 void solve()
 {
     // Enter your solution logic here
@@ -22,6 +30,7 @@ void solve()
 int main()
 {
     fastIO();
+    // fileIO();
 
     solve();
 
