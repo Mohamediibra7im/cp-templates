@@ -113,12 +113,12 @@ for (int n = 1; n <= maxn; ++n) {
 
 If the entire table of values is not necessary, storing only two last rows of it is sufficient (current $n$-th row and the previous $n-1$-th).
 
-### Calculation in $O(1)$ {data-toc-label="Calculation in O(1)"}
+### Calculation in $O(1)$
 
 Finally, in some situations it is beneficial to precompute all the factorials in order to produce any necessary binomial coefficient with only two divisions later. This can be advantageous when using [long arithmetic](../algebra/big-integer.md), when the memory does not allow precomputation of the whole Pascal's triangle.
 
 
-## Computing binomial coefficients modulo $m$ {data-toc-label="Computing binomial coefficients modulo m"}
+## Computing binomial coefficients modulo $m$
 
 Quite often you come across the problem of computing binomial coefficients modulo some $m$.
 
@@ -162,7 +162,7 @@ long long binomial_coefficient(int n, int k) {
 }
 ```
 
-### Binomial coefficient modulo prime power  { #mod-prime-pow}
+### Binomial coefficient modulo prime power
 
 Here we want to compute the binomial coefficient modulo some prime power, i.e. $m = p^b$ for some prime $p$.
 If $p > \max(k, n-k)$, then we can use the same method as described in the previous section.
