@@ -71,7 +71,7 @@ $$ (1 - x)^k = \binom{k}{0} - \binom{k}{1} \cdot x + \binom{k}{2} \cdot x^2 - \b
 
 When $x = 1$, $(1 - x)^k$ looks a lot like $T$. However, the expression has an additional $\binom{k}{0} = 1$, and it is multiplied by $-1$. That leads us to $(1 - 1)^k = 1 - T$. Therefore $T = 1 - (1 - 1)^k = 1$, what was required to prove. The element is counted only once.
 
-## Generalization for calculating number of elements in exactly $r$ sets {data-toc-label="Generalization for calculating number of elements in exactly r sets"}
+## Generalization for calculating number of elements in exactly $r$ sets
 
 Inclusion-exclusion principle can be rewritten to calculate number of elements which are present in zero sets:
 
