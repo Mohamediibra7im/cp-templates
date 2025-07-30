@@ -358,6 +358,35 @@ vector<ll> sieve(ll n)
     return res;
 }
 
+// Linear Sieve of Eratosthenes
+// @brief Generates all prime numbers up to N using a linear sieve.
+// @note This method is more efficient than the traditional Sieve of Eratosthenes for generating primes.
+// @param N The upper limit for prime generation.
+// @return A vector containing all prime numbers up to N.
+// @note The linear sieve is particularly useful for generating primes in a range and is efficient for
+// large values of N.
+// @note It also allows for easy factorization of numbers.
+const int N = 1e5 + 5;
+vector<bool> isPrimeArr(N, true);
+vector<int> p;
+void linear_sieve()
+{
+    isPrimeArr[0] = isPrimeArr[1] = 0;
+    for (ll i = 2; i < N; i++)
+    {
+        if (isPrimeArr[i] == 1)
+            p.push_back(i);
+        for (ll o = 0; o < p.size(); o++)
+        {
+            if (i * p[o] >= N)
+                break;
+            isPrimeArr[i * p[o]] = 0;
+            if (i % p[o] == 0)
+                break;
+        }
+    }
+}
+
 // Euler's Totient Function
 // @brief Calculates the number of integers up to n that are coprime with n.
 // @param n The number to analyze.
@@ -394,6 +423,17 @@ void factorial(int mod)
     invfact[maxA - 1] = fastPower(fact[maxA - 1], mod - 2, mod);
     for (int i = maxA - 2; i >= 0; i--)
         invfact[i] = (i + 1) * invfact[i + 1] % mod;
+}
+
+
+// this function is used to precompute all necessary values before solving the main problem
+// @brief Precomputes necessary values for the problem.
+// @note This function is called at the beginning of the main function to ensure all values are
+// available for use.
+void precompute()
+{
+    linear_sieve();
+    factorial(mod);
 }
 
 int main()
