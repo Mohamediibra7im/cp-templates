@@ -148,8 +148,8 @@ int numberOfDivisors(ll n)
     int divisors = 0;
     for (int i = 1; i * i <= n; i++)
         if (n % i == 0)
-            divisors += 2;
-    return divisors - (sqrt(n) == (int)sqrt(n));
+            divisors += 2 - (i * i == n);
+    return divisors;
 }
 
 // Sum of divisors of a number
